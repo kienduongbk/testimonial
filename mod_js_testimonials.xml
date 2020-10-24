@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>mod_js_testimonials</name>
+	<author>Joomla Addons</author>
+	<creationDate>Sep 2020</creationDate>
+	<copyright>Copyright (C) 2005 - 2020 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomladdons.com</authorEmail>
+	<authorUrl>https://joomladdons.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_JS_TESTIMONIAL_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_js_testimonials">mod_js_testimonials.php</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_js_testimonials.ini</language>
+		<language tag="en-GB">language/en-GB.mod_js_testimonials.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_LANGUAGE_SWITCHER" />
+	<config>
+		<fields name="params" addfieldpath="">
+			<fieldset name="basic" label="TPL_GROUP_EXTRA_FIELDS_LABEL" description="">
+
+			<field
+				name="testimonial"
+				type="subform"
+				label="JS_TESTIMONIAL_SLIDE_LABLE"
+				description="JS_TESTIMONIAL_SLIDE_DESC"
+				layout="joomla.form.field.subform.repeatable-table"
+				icon="list"
+				multiple="true"
+				class="no-row"
+				>
+				<form hidden="true" name="list-info-testimonial" repeat="true">
+					<field
+						name="testimonial_name"
+						type="text"
+						label="Name "
+						description="aaaa"
+						hint="Kien Duong"
+					/>
+
+					<field
+						name="testimonial_position"
+						type="text"
+						label="Position"
+						description="Position description"
+						hint="Position"
+					/>
+					<field
+						name="testimonial_description"
+						type="textarea"
+						label="Description"
+						description="Description here"
+						hint="Description here"
+					/>
+
+					<field
+						name="testimonial_img"
+						type="media"
+						label="images"
+						description="iamge description"
+						hint="aaa.png"
+					/>
+					
+				</form>
+			</field>
+
+    </fieldset>
+
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="text"  
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

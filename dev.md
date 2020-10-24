@@ -1,0 +1,4 @@
+- name
+- positions
+- quote
+- images
