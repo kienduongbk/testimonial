@@ -19,7 +19,7 @@ $colum = $params->get('col', 2);
 $i = 0;
 if (!$count) return true;
 ?>
-<div id="js-testimonial" class="js-section" role="testimonial">
+<div id="js-testimonial" class="js-section<?php echo $moduleclass_sfx; ?>" role="testimonial">
     <div class="js-testimonial-inner container">
         <?php if ($show_heading) : ?>
             <div class="section-heading text-center">

@@ -14,8 +14,6 @@ use Joomla\CMS\Helper\ModuleHelper;
 // Include the languages functions only once
 JLoader::register('ModJSTestimonialsHelper', __DIR__ . '/helper.php');
 
-$headerText      = $params->get('header_text');
-$footerText      = $params->get('footer_text');
 // $list            = ModJSTestimonialsHelper::getList($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
