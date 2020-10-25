@@ -9,6 +9,13 @@
  */
 
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory as JFactory;
+
+$doc = JFactory::getDocument();
+$doc->addStyleSheet('modules/mod_js_testimonials/assets/css/style.css');
+$doc->addScript('modules/mod_js_testimonials/assets/js/script.js');
+
 $data = (array)$params->get('testimonial');
 //get params
 $show_heading = $params->get('show_heading');
