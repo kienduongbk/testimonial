@@ -9,23 +9,32 @@
  */
 
 defined('_JEXEC') or die;
-$data = $params->get('testimonial');
+$data = (array)$params->get('testimonial');
+//get params
+$show_heading = $params->get('show_heading');
 $heading_title = $params->get('heading_title');
 $heading_desc = $params->get('heading_desc');
-$count = 0;
-$col = $params->get('col');
+$count = !empty($data) ? count($data) : 0;
+$colum = $params->get('col', 2);
+$i = 0;
+if (!$count) return true;
 ?>
 <div id="js-testimonial" class="js-section" role="testimonial">
     <div class="js-testimonial-inner container">
-        <div class="section-heading text-center">
-            <h2>Testimonials</h2>
+        <?php if ($show_heading) : ?>
+            <div class="section-heading text-center">
+                <h2><?php echo $heading_title; ?></h2>
 
-            <p>What customers say about us</p>
-        </div>
+                <p><?php echo $heading_desc; ?></p>
+            </div>
+        <?php endif; ?>
 
-        <ul class="testimonial-list row">
-            <?php foreach ($data as $item) : ?>
-                <li class="item col-md-4">
+        <?php foreach ($data as $item) : ?>
+            <?php $rowcount = ((int)$i % (int) $colum) + 1; ?>
+            <?php if ($rowcount === 1) : ?>
+                <ul class="testimonial-list row">
+                <?php endif; ?>
+                <li class="item col-md-<?php echo (12 / $colum); ?>">
                     <div class="testimonial-block">
                         <img src="<?php echo $item->testimonial_img; ?>" alt="Sample image" class="img-circle" />
                         <h4 class="author-name"><?php echo $item->testimonial_name; ?></h4>
@@ -36,7 +45,10 @@ $col = $params->get('col');
                         </p>
                     </div>
                 </li>
-            <?php endforeach; ?>
-        </ul>
+                <?php $i++; ?>
+                <?php if (($rowcount == $colum) or ($i == $count)) : ?>
+                </ul><!-- end row -->
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
 </div>
